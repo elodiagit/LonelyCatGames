@@ -1,0 +1,167 @@
+.panel-footer{
+  margin-top: 30px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background-color: #222;
+  border-top: 0;
+  color: white
+} 
+span{
+  font-size: 1.3em;
+  color: #32ff1e;
+  line-height: 1.8;
+}
+.panel-footer div .row{
+  margin-bottom: 30px
+}
+@media (max-width: 768px){
+  section{text-align: center;}
+}
+@media (max-width: 991px)and(min-width: 768px){
+
+}
+nav{
+  color: green;
+}
+article{
+  border: 10px solid olive;
+  margin: 10px;
+  padding-bottom: 100px
+}
+p{padding: 10px;
+  border-top: 10px double green
+}
+h2,h3{font-family: fantasy;}
+
+html, body {
+  margin: 0;
+}
+
+
+.scroller {
+  position: fixed;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background: white;
+}
+
+main {
+  margin-top: 0;
+}
+
+body {
+  background: linear-gradient(to right top, #c69 50%, #ddd 50%);
+  background-size: 100% calc(100% - 100vh +  -6px);
+  background-repeat: no-repeat;
+}
+
+body:before {
+  content: '';
+  position: fixed;
+  top: 6px;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  background: white;
+}
+
+main {
+  font-family: monospace;
+  max-width: 50%;
+  margin: 0 auto;
+  font-size: 1.5em;
+}
+main h1 {
+  color: #c69;
+}
+main div {
+  margin-bottom: 1em;
+}
+
+
+/*----------------------------------------------   
+--Banner
+-----------------------------------------------  */
+.sect-banner{
+ display: table;
+ width: 100%;
+ margin: 0 auto;
+ text-align: center;
+
+ /*-- Full Height --*/
+ height: 100vh;
+ color: rgba(255,255,255,0.9);
+
+ /*-- Create an Overlay --*/
+ &:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(118, 144, 164, 0.4);
+  z-index: 0;
+ }
+
+ /*-- Vertically center --*/
+ .v-center{
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  z-index: 4;
+  padding: 0 5%;
+ }
+}/*----------------------------------------------   
+--Keyframes
+-----------------------------------------------  */
+@include keyframes(fade-out) {
+ 33%{
+  opacity: 1
+ }
+ 66%{
+ opacity: 0
+ }
+}/*----------------------------------------------   
+--List for images, sm and large
+-----------------------------------------------  */
+ul.kf-slider{
+ li{  
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:  50%;
+  z-index: 0;
+  opacity: 0;
+  /*-- Add animation --*/ 
+  @include animation(fade-out 9s infinite both);
+  /*-- Image 1: small --*/ 
+  background-image: url(../images/banner-1-sm.jpg);
+  @media (min-width: 32ems){
+   /*-- Image 1: large --*/ 
+   background-image: url(../images/banner-1.jpg);
+  }
+ }
+ /*-- Image 2 --*/ 
+ li:nth-child(2){
+  background-image: url(../images/banner-2-sm.jpg);
+  /*-- Animation delay: 3s --*/ 
+  @include animation-delay(3s);
+  @media (min-width: 32ems){
+   background-image: url(../images/banner-2.jpg);
+  }
+ }
+ /*-- Image 3 --*/ 
+ li:nth-child(3){
+  background-image: url(../images/banner-3-sm.jpg);
+  /* Animation delay: 6s */  
+  @include animation-delay(6s);
+  @media (min-width: 32ems){
+   background-image: url(../images/banner-3.jpg);
+  }
+ }
+}
